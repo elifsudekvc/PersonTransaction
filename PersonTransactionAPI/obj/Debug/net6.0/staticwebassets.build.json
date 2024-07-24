@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NHN/hs/hHiWjL6qpQnLoknt4kvzfiPccI0pApj1hKB4=",
+  "Source": "PersonTransactionAPI",
+  "BasePath": "_content/PersonTransactionAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

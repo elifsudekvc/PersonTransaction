@@ -1,0 +1,11 @@
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\bin\Debug\net6.0\PersonTransaction.DtoLayer.deps.json
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\bin\Debug\net6.0\PersonTransaction.DtoLayer.dll
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\bin\Debug\net6.0\PersonTransaction.DtoLayer.pdb
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.AssemblyInfoInputs.cache
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.AssemblyInfo.cs
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.csproj.CoreCompileInputs.cache
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.dll
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\refint\PersonTransaction.DtoLayer.dll
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.pdb
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\ref\PersonTransaction.DtoLayer.dll
