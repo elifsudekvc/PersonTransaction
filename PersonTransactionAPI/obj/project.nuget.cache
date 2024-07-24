@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rb3TCoh7vR/kCldn2+RsNxiZzdrI0y4pzuAR15MFp7XJxlo1d2eWnw+9Ji17z944kGxeXHHJSaj6QkUpY2hriw==",
+  "dgSpecHash": "ak51Oy8WGu/68mThI35klmN3d16C+Xb0doSFWQ+Dr/NxkQwKmtVLb7Btc+Nd3fXTKnUe62OsIj2V3eJiiGiHEg==",
   "success": true,
   "projectFilePath": "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransactionAPI\\PersonTransactionAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\eskvc\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\eskvc\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\eskvc\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\eskvc\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\eskvc\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\eskvc\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\eskvc\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\eskvc\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.21\\microsoft.entityframeworkcore.6.0.21.nupkg.sha512",
