@@ -15,3 +15,4 @@ C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.BusinessLayer\obj\Debug\net6.0\refint\PersonTransaction.BusinessLayer.dll
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.BusinessLayer\obj\Debug\net6.0\PersonTransaction.BusinessLayer.pdb
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.BusinessLayer\obj\Debug\net6.0\ref\PersonTransaction.BusinessLayer.dll
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.BusinessLayer\obj\Debug\net6.0\PersonTransaction.BusinessLayer.sourcelink.json

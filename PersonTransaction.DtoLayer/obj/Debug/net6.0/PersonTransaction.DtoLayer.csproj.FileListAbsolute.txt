@@ -9,3 +9,4 @@ C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\refint\PersonTransaction.DtoLayer.dll
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.pdb
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\ref\PersonTransaction.DtoLayer.dll
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.DtoLayer\obj\Debug\net6.0\PersonTransaction.DtoLayer.sourcelink.json

@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PersonTransaction.BusinessLayer\PersonTransaction.BusinessLayer.csproj" />
     <ProjectReference Include="..\PersonTransaction.DtoLayer\PersonTransaction.DtoLayer.csproj" />
   </ItemGroup>

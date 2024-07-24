@@ -9,3 +9,4 @@ C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.EntityLayer\obj\Debug\net6.0\refint\PersonTransaction.EntityLayer.dll
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.EntityLayer\obj\Debug\net6.0\PersonTransaction.EntityLayer.pdb
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.EntityLayer\obj\Debug\net6.0\ref\PersonTransaction.EntityLayer.dll
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransaction.EntityLayer\obj\Debug\net6.0\PersonTransaction.EntityLayer.sourcelink.json
