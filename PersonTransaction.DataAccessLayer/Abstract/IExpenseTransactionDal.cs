@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonTransaction.DataAccessLayer.Abstract
 {
-    public interface IExpenseTransaction : IGenericDal<ExpenseTransaction>
+    public interface IExpenseTransactionDal : IGenericDal<ExpenseTransaction>
     {
     }
 }

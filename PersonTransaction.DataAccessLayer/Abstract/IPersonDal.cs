@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace PersonTransaction.DataAccessLayer.Abstract
 {
+    //Bu arabirim, Person varlığına özgü veri erişim işlemlerini tanımlar.
+    //IGenericDal<Person> arabirimini genişleterek Person varlığı için temel CRUD işlemlerini sağlar.
     public interface IPersonDal : IGenericDal<Person>
     {
     }
