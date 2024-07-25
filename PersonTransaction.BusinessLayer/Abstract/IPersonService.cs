@@ -11,5 +11,6 @@ namespace PersonTransaction.BusinessLayer.Abstract
     //IGenericService<Person> arabirimini genişleterek Person için temel iş mantığı işlemlerini sağlar.
     public interface IPersonService : IGenericService<Person>
     {
+        List<Person> TGetPersonsWithExpenses();
     }
 }

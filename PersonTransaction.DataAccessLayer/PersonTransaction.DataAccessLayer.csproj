@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PersonTransaction.DtoLayer\PersonTransaction.DtoLayer.csproj" />
     <ProjectReference Include="..\PersonTransaction.EntityLayer\PersonTransaction.EntityLayer.csproj" />
   </ItemGroup>
 

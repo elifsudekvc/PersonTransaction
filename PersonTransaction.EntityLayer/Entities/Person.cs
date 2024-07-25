@@ -6,7 +6,8 @@
     //bu classlar veritabanında tabloya dönüşür.
     public class Person
     {
-        public int PersonID { get; set; }
+        public int PersonID { get; set; } //PersonID TC kimlik no gibi düşünülebilir.
         public string Name { get; set; }
+        public List<ExpenseTransaction> ExpenseTransactions { get; set; }
     }
 }

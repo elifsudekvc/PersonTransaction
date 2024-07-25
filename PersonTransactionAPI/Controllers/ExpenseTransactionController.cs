@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PersonTransaction.BusinessLayer.Abstract;
+using PersonTransaction.DataAccessLayer.Concrete;
 using PersonTransaction.DtoLayer.ExpenseTransactionDto;
 using PersonTransaction.DtoLayer.PersonDto;
 using PersonTransaction.EntityLayer.Entities;
@@ -27,6 +29,8 @@ namespace PersonTransactionAPI.Controllers
                 var values = _mapper.Map<List<ResultExpenseTransactionDto>>(_expenseTransactionService.TGetListAll());
                 return Ok(values);
             }
+
+
             [HttpPost]
             public IActionResult CreateExpenseTransaction(CreateExpenseTransactionDto createExpenseTransactionDto)
             {
@@ -35,6 +39,7 @@ namespace PersonTransactionAPI.Controllers
                     Amount = createExpenseTransactionDto.Amount,
                     Date = createExpenseTransactionDto.Date,
                     Description = createExpenseTransactionDto.Description,
+                    PersonID = createExpenseTransactionDto.PersonID,
                 });
                 return Ok("Transaction Added.");
             }
@@ -63,6 +68,42 @@ namespace PersonTransactionAPI.Controllers
                     ExpenseTransactionID = updateExpenseTransactionDto.ExpenseTransactionID
                 });
                 return Ok("Person Updated.");
+            }
+
+
+            [HttpGet("ExpenseTransactionListWithPerson")]
+            public IActionResult ExpenseTransactionListWithPerson()
+            {
+                var context = new PersonTransactionContext();
+                var values = context.ExpenseTransactions.Include(x => x.Person).Select(y => new ResultExpenseTransactionWithPerson
+                {
+                    Amount = y.Amount,
+                    Date = y.Date,
+                    Description = y.Description,
+                    ExpenseTransactionID = y.ExpenseTransactionID,
+                    Name = y.Person.Name
+                }).ToList();
+                return Ok(values.ToList());
+            }
+
+            [HttpGet("PersonWithExpenseTransaction")]
+            public IActionResult PersonWithExpenseTransaction()
+            {
+                var context = new PersonTransactionContext();
+                var personsWithExpenses = context.Persons.Include(p => p.ExpenseTransactions).Select(person => new ResultPersonWithExpenseTransactionDto
+                {
+                    PersonID = person.PersonID,
+                    Name = person.Name,
+                    ExpenseTransactions = person.ExpenseTransactions.Select(exp => new ResultExpenseTransactionWithPerson
+                    {
+                        ExpenseTransactionID = exp.ExpenseTransactionID,
+                        Description = exp.Description,
+                        Amount = exp.Amount,
+                        Date = exp.Date,
+                        Name = person.Name
+                    }).ToList()
+                }).ToList();
+                return Ok(personsWithExpenses);
             }
     }
 }

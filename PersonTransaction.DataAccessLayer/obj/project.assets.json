@@ -783,6 +783,16 @@
           }
         }
       },
+      "PersonTransaction.DtoLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/PersonTransaction.DtoLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PersonTransaction.DtoLayer.dll": {}
+        }
+      },
       "PersonTransaction.EntityLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2014,6 +2024,11 @@
         "version.txt"
       ]
     },
+    "PersonTransaction.DtoLayer/1.0.0": {
+      "type": "project",
+      "path": "../PersonTransaction.DtoLayer/PersonTransaction.DtoLayer.csproj",
+      "msbuildProject": "../PersonTransaction.DtoLayer/PersonTransaction.DtoLayer.csproj"
+    },
     "PersonTransaction.EntityLayer/1.0.0": {
       "type": "project",
       "path": "../PersonTransaction.EntityLayer/PersonTransaction.EntityLayer.csproj",
@@ -2027,6 +2042,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.21",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.21",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.21",
+      "PersonTransaction.DtoLayer >= 1.0.0",
       "PersonTransaction.EntityLayer >= 1.0.0"
     ]
   },
@@ -2062,6 +2078,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.DtoLayer\\PersonTransaction.DtoLayer.csproj": {
+              "projectPath": "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.DtoLayer\\PersonTransaction.DtoLayer.csproj"
+            },
             "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.EntityLayer\\PersonTransaction.EntityLayer.csproj": {
               "projectPath": "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.EntityLayer\\PersonTransaction.EntityLayer.csproj"
             }

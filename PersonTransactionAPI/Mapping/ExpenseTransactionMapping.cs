@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PersonTransaction.DtoLayer.ExpenseTransactionDto;
+using PersonTransaction.DtoLayer.PersonDto;
 using PersonTransaction.EntityLayer.Entities;
 
 namespace PersonTransactionAPI.Mapping
@@ -12,6 +13,8 @@ namespace PersonTransactionAPI.Mapping
             CreateMap<ExpenseTransaction, CreateExpenseTransactionDto>().ReverseMap();
             CreateMap<ExpenseTransaction, GetExpenseTransactionDto>().ReverseMap();
             CreateMap<ExpenseTransaction, UpdateExpenseTransactionDto>().ReverseMap();
+            CreateMap<ExpenseTransaction, ResultExpenseTransactionWithPerson>().ReverseMap();
+            CreateMap<ExpenseTransaction, ResultPersonWithExpenseTransactionDto>().ReverseMap();
         }
     }
 }

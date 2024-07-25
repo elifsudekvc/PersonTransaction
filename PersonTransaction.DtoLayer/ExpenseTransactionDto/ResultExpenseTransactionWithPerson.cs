@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace PersonTransaction.DtoLayer.ExpenseTransactionDto
 {
-    public class CreateExpenseTransactionDto
+    public class ResultExpenseTransactionWithPerson
     {
+        public int ExpenseTransactionID { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
-        public int PersonID { get; set; }
+        public string Name { get; set; }
     }
 }

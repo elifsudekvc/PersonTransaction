@@ -9,5 +9,6 @@ namespace PersonTransaction.DataAccessLayer.Abstract
 {
     public interface IExpenseTransactionDal : IGenericDal<ExpenseTransaction>
     {
+        List<ExpenseTransaction> GetExpenseTransactionWithPerson();
     }
 }

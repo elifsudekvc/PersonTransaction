@@ -11,5 +11,6 @@ namespace PersonTransaction.DataAccessLayer.Abstract
     //IGenericDal<Person> arabirimini genişleterek Person varlığı için temel CRUD işlemlerini sağlar.
     public interface IPersonDal : IGenericDal<Person>
     {
+        List<Person> GetPersonsWithExpenses();
     }
 }

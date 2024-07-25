@@ -9,5 +9,6 @@ namespace PersonTransaction.BusinessLayer.Abstract
 {
     public interface IExpenseTransactionService:IGenericService<ExpenseTransaction>
     {
+        List<ExpenseTransaction> TGetExpenseTransactionWithPerson();
     }
 }

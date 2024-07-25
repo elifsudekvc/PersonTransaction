@@ -40,6 +40,11 @@ namespace PersonTransaction.BusinessLayer.Concrete
             return _personDal.GetListAll();
         }
 
+        public List<Person> TGetPersonsWithExpenses()
+        {
+            return _personDal.GetPersonsWithExpenses();
+        }
+
         public void TUpdate(Person entity)
         {
             _personDal.Update(entity);

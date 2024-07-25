@@ -745,6 +745,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.21",
           "Microsoft.EntityFrameworkCore.Abstractions": "6.0.21",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.21",
+          "PersonTransaction.DtoLayer": "1.0.0",
           "PersonTransaction.EntityLayer": "1.0.0"
         },
         "compile": {
@@ -752,6 +753,16 @@
         },
         "runtime": {
           "bin/placeholder/PersonTransaction.DataAccessLayer.dll": {}
+        }
+      },
+      "PersonTransaction.DtoLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/PersonTransaction.DtoLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PersonTransaction.DtoLayer.dll": {}
         }
       },
       "PersonTransaction.EntityLayer/1.0.0": {
@@ -1933,6 +1944,11 @@
       "type": "project",
       "path": "../PersonTransaction.DataAccessLayer/PersonTransaction.DataAccessLayer.csproj",
       "msbuildProject": "../PersonTransaction.DataAccessLayer/PersonTransaction.DataAccessLayer.csproj"
+    },
+    "PersonTransaction.DtoLayer/1.0.0": {
+      "type": "project",
+      "path": "../PersonTransaction.DtoLayer/PersonTransaction.DtoLayer.csproj",
+      "msbuildProject": "../PersonTransaction.DtoLayer/PersonTransaction.DtoLayer.csproj"
     },
     "PersonTransaction.EntityLayer/1.0.0": {
       "type": "project",

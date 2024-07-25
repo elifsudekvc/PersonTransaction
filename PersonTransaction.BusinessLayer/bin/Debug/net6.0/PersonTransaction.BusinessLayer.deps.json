@@ -467,10 +467,16 @@
           "Microsoft.EntityFrameworkCore": "6.0.21",
           "Microsoft.EntityFrameworkCore.Abstractions": "6.0.21",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.21",
+          "PersonTransaction.DtoLayer": "1.0.0",
           "PersonTransaction.EntityLayer": "1.0.0"
         },
         "runtime": {
           "PersonTransaction.DataAccessLayer.dll": {}
+        }
+      },
+      "PersonTransaction.DtoLayer/1.0.0": {
+        "runtime": {
+          "PersonTransaction.DtoLayer.dll": {}
         }
       },
       "PersonTransaction.EntityLayer/1.0.0": {
@@ -767,6 +773,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "PersonTransaction.DataAccessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PersonTransaction.DtoLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

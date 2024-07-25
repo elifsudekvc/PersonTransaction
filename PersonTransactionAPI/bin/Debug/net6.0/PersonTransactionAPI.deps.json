@@ -526,6 +526,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.21",
           "Microsoft.EntityFrameworkCore.Abstractions": "6.0.21",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.21",
+          "PersonTransaction.DtoLayer": "1.0.0",
           "PersonTransaction.EntityLayer": "1.0.0"
         },
         "runtime": {

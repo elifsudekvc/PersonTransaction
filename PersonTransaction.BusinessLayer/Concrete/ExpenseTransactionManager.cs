@@ -33,6 +33,11 @@ namespace PersonTransaction.BusinessLayer.Concrete
             return _expenseTransactionDal.GetByID(id);
         }
 
+        public List<ExpenseTransaction> TGetExpenseTransactionWithPerson()
+        {
+            return _expenseTransactionDal.GetExpenseTransactionWithPerson();
+        }
+
         public List<ExpenseTransaction> TGetListAll()
         {
             return _expenseTransactionDal.GetListAll();

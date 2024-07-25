@@ -1,4 +1,5 @@
-﻿using PersonTransaction.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonTransaction.DataAccessLayer.Abstract;
 using PersonTransaction.DataAccessLayer.Concrete;
 using PersonTransaction.DataAccessLayer.Repositories;
 using PersonTransaction.EntityLayer.Entities;
@@ -16,6 +17,13 @@ namespace PersonTransaction.DataAccessLayer.EntityFramework
     {
         public EfPersonDal(PersonTransactionContext context) : base(context)
         {
+        }
+
+        public List<Person> GetPersonsWithExpenses()
+        {
+            var context = new PersonTransactionContext();
+            var values =  context.Persons.Include(p => p.ExpenseTransactions).ToList();
+            return values;
         }
     }
 }

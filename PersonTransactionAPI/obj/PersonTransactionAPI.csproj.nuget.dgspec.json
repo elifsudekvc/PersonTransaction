@@ -95,6 +95,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.DtoLayer\\PersonTransaction.DtoLayer.csproj": {
+                "projectPath": "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.DtoLayer\\PersonTransaction.DtoLayer.csproj"
+              },
               "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.EntityLayer\\PersonTransaction.EntityLayer.csproj": {
                 "projectPath": "C:\\Users\\eskvc\\OneDrive\\Masaüstü\\back end\\PersonTransaction\\PersonTransaction.EntityLayer\\PersonTransaction.EntityLayer.csproj"
               }

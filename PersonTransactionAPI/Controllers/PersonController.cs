@@ -48,6 +48,8 @@ namespace PersonTransactionAPI.Controllers
             var value = _personService.TGetByID(id);
             return Ok(value);
         }
+
+
         [HttpPut]
         public IActionResult UpdatePerson(UpdatePersonDto updatePersonDto)
         {
