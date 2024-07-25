@@ -19,13 +19,13 @@ namespace PersonTransactionAPI.Controllers
             _personService = personService;
             _mapper = mapper;
         }
-        [HttpGet]
+        [HttpGet("GetAllPerson")]
         public IActionResult PersonList()
         {
             var values = _mapper.Map<List<ResultPersonDto>>(_personService.TGetListAll());
             return Ok(values);
         }
-        [HttpPost]
+        [HttpPost("CreatePerson")]
         public IActionResult CreatePerson(CreatePersonDto createPersonDto)
         {
             _personService.TAdd(new Person()
@@ -35,7 +35,7 @@ namespace PersonTransactionAPI.Controllers
             });
             return Ok("Person Added.");
         }
-        [HttpDelete]
+        [HttpDelete("DeletePerson")]
         public IActionResult DeletePerson(string tcKimlik)
         {
             var person = _personService.GetPersonByTCKimlik(tcKimlik);
@@ -63,10 +63,8 @@ namespace PersonTransactionAPI.Controllers
             }
         }
 
-
-
-        [HttpPut]
-        public IActionResult UpdatePerson(UpdatePersonDto updatePersonDto)
+        [HttpPut("UpdatePerson")]
+        public IActionResult Uppp(UpdatePersonDto updatePersonDto)
         {
             try
             {

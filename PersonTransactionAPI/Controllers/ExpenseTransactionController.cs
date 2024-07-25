@@ -23,7 +23,7 @@ namespace PersonTransactionAPI.Controllers
                 _mapper = mapper;
             }
 
-            [HttpGet]
+            [HttpGet("GetAllExpenseTransaction")]
             public IActionResult ExpenseTransactionList()
             {
                 var values = _mapper.Map<List<ResultExpenseTransactionDto>>(_expenseTransactionService.TGetListAll());
@@ -31,19 +31,40 @@ namespace PersonTransactionAPI.Controllers
             }
 
 
-            [HttpPost]
-            public IActionResult CreateExpenseTransaction(CreateExpenseTransactionDto createExpenseTransactionDto)
+        [HttpPost("CreateExpenseTransaction")]
+        public IActionResult CreateExpenseTransaction(CreateExpenseTransactionDto createExpenseTransactionDto)
+        {
+            // Kişiyi TC Kimlik numarasına göre bul
+            var context = new PersonTransactionContext();
+            var person = context.Persons.SingleOrDefault(p => p.TCKimlik == createExpenseTransactionDto.TCKimlik);
+
+            if (person == null)
             {
-                _expenseTransactionService.TAdd(new ExpenseTransaction()
-                {
-                    Amount = createExpenseTransactionDto.Amount,
-                    Date = createExpenseTransactionDto.Date,
-                    Description = createExpenseTransactionDto.Description,
-                    PersonID = createExpenseTransactionDto.PersonID,
-                });
-                return Ok("Transaction Added.");
+                return BadRequest("Person with provided TC Kimlik not found.");
             }
-            [HttpDelete]
+
+            // ExpenseTransaction oluştur ve ekleyeceğin kişinin ID'sini ata
+            var expenseTransaction = new ExpenseTransaction()
+            {
+                Amount = createExpenseTransactionDto.Amount,
+                Date = createExpenseTransactionDto.Date,
+                Description = createExpenseTransactionDto.Description,
+                PersonID = person.PersonID, // Kişinin ID'sini ata
+            };
+
+            try
+            {
+                _expenseTransactionService.TAdd(expenseTransaction);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error adding transaction: {ex.Message}");
+            }
+
+            return Ok("Transaction Added.");
+        }
+
+            [HttpDelete("DeleteExpenseTransaction")]
             public IActionResult DeleteExpenseTransaction(int id)
             {
                 var value = _expenseTransactionService.TGetByID(id);
@@ -54,10 +75,20 @@ namespace PersonTransactionAPI.Controllers
             [HttpGet("GetExpenseTransaction")]
             public IActionResult GetExpenseTransaction(int id)
             {
-                var value = _expenseTransactionService.TGetByID(id);
-                return Ok(value);
+                var expenseTransaction = _expenseTransactionService.TGetByID(id);
+
+                if (expenseTransaction == null)
+                {
+                    return NotFound("Expense transaction not found.");
+                }
+
+                // DTO'ya dönüştür
+                var expenseTransactionDto = _mapper.Map<GetExpenseTransactionDto>(expenseTransaction);
+
+                return Ok(expenseTransactionDto);
             }
-            [HttpPut]
+
+        [HttpPut("UpdateExpenseTransaction")]
             public IActionResult UpdateExpenseTransaction(UpdateExpenseTransactionDto updateExpenseTransactionDto)
             {
                 _expenseTransactionService.TUpdate(new ExpenseTransaction()
