@@ -1,4 +1,5 @@
-﻿using PersonTransaction.EntityLayer.Entities;
+﻿using PersonTransaction.DtoLayer.PersonDto;
+using PersonTransaction.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,8 @@ namespace PersonTransaction.BusinessLayer.Abstract
         Person GetPersonByTCKimlik(string tcKimlik);
         void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson);
         Person GetOnePersonByTCKimlik(string tcKimlik);
+        List<PersonTotalExpenseTransactionDto> GetPersonTotalExpenseTransaction();
+        bool IsTCKimlikExists(string tcKimlik);
+
     }
 }

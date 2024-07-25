@@ -25,13 +25,28 @@ namespace PersonTransactionAPI.Controllers
             var values = _mapper.Map<List<ResultPersonDto>>(_personService.TGetListAll());
             return Ok(values);
         }
-        [HttpPost("CreatePerson")]
-        public IActionResult CreatePerson(CreatePersonDto createPersonDto)
+        [HttpGet("PersonTotalExpenses")]
+        public IActionResult GetPersonTotalExpenses()
         {
+            var totalExpenses = _personService.GetPersonTotalExpenseTransaction();
+            return Ok(totalExpenses);
+        }
+        [HttpPost("CreatePerson")]
+        public IActionResult CreatePerson([FromBody] CreatePersonDto createPersonDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (_personService.IsTCKimlikExists(createPersonDto.TCKimlik))
+            {
+                return BadRequest("Bu TC Kimlik Zaten Var.");
+            }
+
             _personService.TAdd(new Person()
             {
-                TCKimlik=createPersonDto.TCKimlik,
-                Name = createPersonDto.Name
+                Name = createPersonDto.Name,
+                TCKimlik = createPersonDto.TCKimlik
             });
             return Ok("Person Added.");
         }
@@ -66,6 +81,10 @@ namespace PersonTransactionAPI.Controllers
         [HttpPut("UpdatePerson")]
         public IActionResult Uppp(UpdatePersonDto updatePersonDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 _personService.UpdatePersonByTCKimlik(updatePersonDto.TCKimlik, new Person()

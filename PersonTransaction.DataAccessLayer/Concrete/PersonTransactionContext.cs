@@ -17,5 +17,12 @@ namespace PersonTransaction.DataAccessLayer.Concrete
 
         public DbSet<Person> Persons { get; set; }
         public DbSet<ExpenseTransaction> ExpenseTransactions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Person>()
+                .HasIndex(p => p.TCKimlik)
+                .IsUnique();
+        }
     }
 }

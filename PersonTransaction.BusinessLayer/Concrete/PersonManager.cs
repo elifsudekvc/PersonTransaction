@@ -1,5 +1,6 @@
 ﻿using PersonTransaction.BusinessLayer.Abstract;
 using PersonTransaction.DataAccessLayer.Abstract;
+using PersonTransaction.DtoLayer.PersonDto;
 using PersonTransaction.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,27 @@ namespace PersonTransaction.BusinessLayer.Concrete
         public Person GetPersonByTCKimlik(string tcKimlik)
         {
             return _personDal.GetListAll().FirstOrDefault(p => p.TCKimlik == tcKimlik);
+        }
+
+        public bool IsTCKimlikExists(string tcKimlik)
+        {
+            return _personDal.GetListAll().Any(p => p.TCKimlik == tcKimlik);
+        }
+
+
+        public List<PersonTotalExpenseTransactionDto> GetPersonTotalExpenseTransaction()
+        {
+            {
+                var persons = _personDal.GetPersonsWithExpenses();
+                var personTotalExpenses = persons.Select(person => new PersonTotalExpenseTransactionDto
+                {
+                    TCKimlik = person.TCKimlik,
+                    Name = person.Name,
+                    TotalExpense = person.ExpenseTransactions.Sum(expense => expense.Amount)
+                }).ToList();
+
+                return personTotalExpenses;
+            }
         }
 
         public void TAdd(Person entity)

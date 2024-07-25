@@ -72,7 +72,7 @@ namespace PersonTransactionAPI.Controllers
                 return Ok("Transaction Deleted");
 
             }
-            [HttpGet("GetExpenseTransaction")]
+            [HttpGet("GetExpenseTransactionById")]
             public IActionResult GetExpenseTransaction(int id)
             {
                 var expenseTransaction = _expenseTransactionService.TGetByID(id);

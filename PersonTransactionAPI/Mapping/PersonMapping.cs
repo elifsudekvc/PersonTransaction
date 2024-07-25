@@ -12,6 +12,8 @@ namespace PersonTransactionAPI.Mapping
             CreateMap<Person, CreatePersonDto>().ReverseMap();
             CreateMap<Person, GetPersonDto>().ReverseMap();
             CreateMap<Person, UpdatePersonDto>().ReverseMap();
+            CreateMap<Person, PersonTotalExpenseTransactionDto>()
+            .ForMember(dest => dest.TotalExpense, opt => opt.MapFrom(src => src.ExpenseTransactions.Sum(e => e.Amount)));
         }
     }
 }

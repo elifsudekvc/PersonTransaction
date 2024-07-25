@@ -2,6 +2,7 @@
 using PersonTransaction.DataAccessLayer.Abstract;
 using PersonTransaction.DataAccessLayer.Concrete;
 using PersonTransaction.DataAccessLayer.Repositories;
+using PersonTransaction.DtoLayer.PersonDto;
 using PersonTransaction.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,19 @@ namespace PersonTransaction.DataAccessLayer.EntityFramework
             var context = new PersonTransactionContext();
             var values =  context.Persons.Include(p => p.ExpenseTransactions).ToList();
             return values;
+        }
+
+        public List<PersonTotalExpenseTransactionDto> GetPersonTotalExpenseTransaction()
+        {
+            var context = new PersonTransactionContext();
+            var totalExpenses = context.Persons.Include(p => p.ExpenseTransactions).Select(person => new PersonTotalExpenseTransactionDto
+            {
+                TCKimlik = person.TCKimlik,
+                Name = person.Name,
+                TotalExpense = person.ExpenseTransactions.Sum(e => e.Amount)
+            }).ToList();
+
+            return totalExpenses;
         }
 
         public void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson)
