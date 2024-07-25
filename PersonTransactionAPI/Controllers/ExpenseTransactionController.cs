@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using PersonTransaction.EntityLayer.Entities;
 
 namespace PersonTransactionAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ExpenseTransactionController : ControllerBase
@@ -22,7 +24,7 @@ namespace PersonTransactionAPI.Controllers
                 _expenseTransactionService = expenseTransactionService;
                 _mapper = mapper;
             }
-
+            [Authorize]
             [HttpGet("GetAllExpenseTransaction")]
             public IActionResult ExpenseTransactionList()
             {
@@ -30,40 +32,40 @@ namespace PersonTransactionAPI.Controllers
                 return Ok(values);
             }
 
-
-        [HttpPost("CreateExpenseTransaction")]
-        public IActionResult CreateExpenseTransaction(CreateExpenseTransactionDto createExpenseTransactionDto)
-        {
-            // Kişiyi TC Kimlik numarasına göre bul
-            var context = new PersonTransactionContext();
-            var person = context.Persons.SingleOrDefault(p => p.TCKimlik == createExpenseTransactionDto.TCKimlik);
-
-            if (person == null)
+            [Authorize]
+            [HttpPost("CreateExpenseTransaction")]
+            public IActionResult CreateExpenseTransaction(CreateExpenseTransactionDto createExpenseTransactionDto)
             {
-                return BadRequest("Person with provided TC Kimlik not found.");
+                // Kişiyi TC Kimlik numarasına göre bul
+                var context = new PersonTransactionContext();
+                var person = context.Persons.SingleOrDefault(p => p.TCKimlik == createExpenseTransactionDto.TCKimlik);
+
+                if (person == null)
+                {
+                    return BadRequest("Person with provided TC Kimlik not found.");
+                }
+
+                // ExpenseTransaction oluştur ve ekleyeceğin kişinin ID'sini ata
+                var expenseTransaction = new ExpenseTransaction()
+                {
+                    Amount = createExpenseTransactionDto.Amount,
+                    Date = createExpenseTransactionDto.Date,
+                    Description = createExpenseTransactionDto.Description,
+                    PersonID = person.PersonID, // Kişinin ID'sini ata
+                };
+
+                try
+                {
+                    _expenseTransactionService.TAdd(expenseTransaction);
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, $"Error adding transaction: {ex.Message}");
+                }
+
+                return Ok("Transaction Added.");
             }
-
-            // ExpenseTransaction oluştur ve ekleyeceğin kişinin ID'sini ata
-            var expenseTransaction = new ExpenseTransaction()
-            {
-                Amount = createExpenseTransactionDto.Amount,
-                Date = createExpenseTransactionDto.Date,
-                Description = createExpenseTransactionDto.Description,
-                PersonID = person.PersonID, // Kişinin ID'sini ata
-            };
-
-            try
-            {
-                _expenseTransactionService.TAdd(expenseTransaction);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error adding transaction: {ex.Message}");
-            }
-
-            return Ok("Transaction Added.");
-        }
-
+            [Authorize]
             [HttpDelete("DeleteExpenseTransaction")]
             public IActionResult DeleteExpenseTransaction(int id)
             {
@@ -87,8 +89,8 @@ namespace PersonTransactionAPI.Controllers
 
                 return Ok(expenseTransactionDto);
             }
-
-        [HttpPut("UpdateExpenseTransaction")]
+            [Authorize]
+            [HttpPut("UpdateExpenseTransaction")]
             public IActionResult UpdateExpenseTransaction(UpdateExpenseTransactionDto updateExpenseTransactionDto)
             {
                 _expenseTransactionService.TUpdate(new ExpenseTransaction()
@@ -101,7 +103,7 @@ namespace PersonTransactionAPI.Controllers
                 return Ok("Person Updated.");
             }
 
-
+            [Authorize]
             [HttpGet("ExpenseTransactionListWithPerson")]
             public IActionResult ExpenseTransactionListWithPerson()
             {
@@ -118,7 +120,7 @@ namespace PersonTransactionAPI.Controllers
                 }).ToList();
                 return Ok(values.ToList());
             }
-
+            [Authorize]
             [HttpGet("PersonWithExpenseTransaction")]
             public IActionResult PersonWithExpenseTransaction()
             {

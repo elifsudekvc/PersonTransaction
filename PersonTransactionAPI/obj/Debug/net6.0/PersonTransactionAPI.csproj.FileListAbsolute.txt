@@ -77,3 +77,4 @@ C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransactionA
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransactionAPI\bin\Debug\net6.0\PersonTransaction.DtoLayer.dll
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransactionAPI\bin\Debug\net6.0\PersonTransaction.DtoLayer.pdb
 C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransactionAPI\obj\Debug\net6.0\PersonTransactionAPI.sourcelink.json
+C:\Users\eskvc\OneDrive\Masaüstü\back end\PersonTransaction\PersonTransactionAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

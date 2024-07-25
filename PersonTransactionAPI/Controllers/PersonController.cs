@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PersonTransaction.BusinessLayer.Abstract;
@@ -7,6 +8,7 @@ using PersonTransaction.EntityLayer.Entities;
 
 namespace PersonTransactionAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase
@@ -19,18 +21,21 @@ namespace PersonTransactionAPI.Controllers
             _personService = personService;
             _mapper = mapper;
         }
+        [Authorize]
         [HttpGet("GetAllPerson")]
         public IActionResult PersonList()
         {
             var values = _mapper.Map<List<ResultPersonDto>>(_personService.TGetListAll());
             return Ok(values);
         }
+        [Authorize]
         [HttpGet("PersonTotalExpenses")]
         public IActionResult GetPersonTotalExpenses()
         {
             var totalExpenses = _personService.GetPersonTotalExpenseTransaction();
             return Ok(totalExpenses);
         }
+        [Authorize]
         [HttpPost("CreatePerson")]
         public IActionResult CreatePerson([FromBody] CreatePersonDto createPersonDto)
         {
@@ -50,6 +55,7 @@ namespace PersonTransactionAPI.Controllers
             });
             return Ok("Person Added.");
         }
+        [Authorize]
         [HttpDelete("DeletePerson")]
         public IActionResult DeletePerson(string tcKimlik)
         {
@@ -62,7 +68,7 @@ namespace PersonTransactionAPI.Controllers
             _personService.TDelete(person);
             return Ok("Person Deleted");
         }
-
+        [Authorize]
         [HttpGet("GetPersonByTCKimlik")]
         public IActionResult GetPersonByTCKimlik(string tcKimlik)
         {
@@ -77,7 +83,7 @@ namespace PersonTransactionAPI.Controllers
                 return NotFound("Person not found.");
             }
         }
-
+        [Authorize]
         [HttpPut("UpdatePerson")]
         public IActionResult Uppp(UpdatePersonDto updatePersonDto)
         {
