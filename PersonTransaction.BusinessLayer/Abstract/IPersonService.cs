@@ -12,5 +12,8 @@ namespace PersonTransaction.BusinessLayer.Abstract
     public interface IPersonService : IGenericService<Person>
     {
         List<Person> TGetPersonsWithExpenses();
+        Person GetPersonByTCKimlik(string tcKimlik);
+        void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson);
+        Person GetOnePersonByTCKimlik(string tcKimlik);
     }
 }

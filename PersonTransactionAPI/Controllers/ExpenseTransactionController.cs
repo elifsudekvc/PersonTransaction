@@ -81,7 +81,9 @@ namespace PersonTransactionAPI.Controllers
                     Date = y.Date,
                     Description = y.Description,
                     ExpenseTransactionID = y.ExpenseTransactionID,
-                    Name = y.Person.Name
+                    Name = y.Person.Name,
+                    TCKimlik=y.Person.TCKimlik,
+
                 }).ToList();
                 return Ok(values.ToList());
             }
@@ -94,13 +96,15 @@ namespace PersonTransactionAPI.Controllers
                 {
                     PersonID = person.PersonID,
                     Name = person.Name,
-                    ExpenseTransactions = person.ExpenseTransactions.Select(exp => new ResultExpenseTransactionWithPerson
+                    TCKimlik = person.TCKimlik,
+                    ExpenseTransactions = person.ExpenseTransactions.Select(y => new ResultExpenseTransactionWithPerson
                     {
-                        ExpenseTransactionID = exp.ExpenseTransactionID,
-                        Description = exp.Description,
-                        Amount = exp.Amount,
-                        Date = exp.Date,
-                        Name = person.Name
+                        ExpenseTransactionID = y.ExpenseTransactionID,
+                        Description = y.Description,
+                        Amount = y.Amount,
+                        Date = y.Date,
+                        Name = person.Name,
+                        TCKimlik = person.TCKimlik,
                     }).ToList()
                 }).ToList();
                 return Ok(personsWithExpenses);

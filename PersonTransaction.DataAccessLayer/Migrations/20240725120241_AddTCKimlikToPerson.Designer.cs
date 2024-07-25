@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PersonTransaction.DataAccessLayer.Concrete;
 
@@ -11,9 +12,10 @@ using PersonTransaction.DataAccessLayer.Concrete;
 namespace PersonTransaction.DataAccessLayer.Migrations
 {
     [DbContext(typeof(PersonTransactionContext))]
-    partial class PersonTransactionContextModelSnapshot : ModelSnapshot
+    [Migration("20240725120241_AddTCKimlikToPerson")]
+    partial class AddTCKimlikToPerson
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -30,35 +30,58 @@ namespace PersonTransactionAPI.Controllers
         {
             _personService.TAdd(new Person()
             {
+                TCKimlik=createPersonDto.TCKimlik,
                 Name = createPersonDto.Name
             });
             return Ok("Person Added.");
         }
         [HttpDelete]
-        public IActionResult DeletePerson(int id)
+        public IActionResult DeletePerson(string tcKimlik)
         {
-            var value = _personService.TGetByID(id);
-            _personService.TDelete(value);
-            return Ok("Person Deleted");
+            var person = _personService.GetPersonByTCKimlik(tcKimlik);
+            if (person == null)
+            {
+                return NotFound("Person not found.");
+            }
 
+            _personService.TDelete(person);
+            return Ok("Person Deleted");
         }
-        [HttpGet("GetPerson")]
-        public IActionResult GetPerson(int id)
+
+        [HttpGet("GetPersonByTCKimlik")]
+        public IActionResult GetPersonByTCKimlik(string tcKimlik)
         {
-            var value = _personService.TGetByID(id);
-            return Ok(value);
+            var person = _personService.GetPersonByTCKimlik(tcKimlik);
+            if (person != null)
+            {
+                var result = _mapper.Map<ResultPersonDto>(person);
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound("Person not found.");
+            }
         }
+
 
 
         [HttpPut]
         public IActionResult UpdatePerson(UpdatePersonDto updatePersonDto)
         {
-            _personService.TUpdate(new Person()
+            try
             {
-                PersonID=updatePersonDto.PersonID,
-                Name = updatePersonDto.Name
-            });
-            return Ok("Person Updated.");
+                _personService.UpdatePersonByTCKimlik(updatePersonDto.TCKimlik, new Person()
+                {
+                    Name = updatePersonDto.Name,
+                    TCKimlik = updatePersonDto.TCKimlik
+                });
+                return Ok("Person Updated.");
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
+
     }
 }

@@ -12,5 +12,8 @@ namespace PersonTransaction.DataAccessLayer.Abstract
     public interface IPersonDal : IGenericDal<Person>
     {
         List<Person> GetPersonsWithExpenses();
+        Person GetPersonByTCKimlik(string tcKimlik);
+        void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson);
+        Person GetOnePersonByTCKimlik(string tcKimlik);
     }
 }

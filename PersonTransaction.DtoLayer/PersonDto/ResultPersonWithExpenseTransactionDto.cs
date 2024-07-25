@@ -11,6 +11,7 @@ namespace PersonTransaction.DtoLayer.PersonDto
     {
         public int PersonID { get; set; }
         public string Name { get; set; }
+        public string TCKimlik { get; set; }
         public List<ResultExpenseTransactionWithPerson> ExpenseTransactions { get; set; }
     }
 }

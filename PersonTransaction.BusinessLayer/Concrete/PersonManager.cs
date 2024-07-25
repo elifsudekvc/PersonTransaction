@@ -20,6 +20,16 @@ namespace PersonTransaction.BusinessLayer.Concrete
             _personDal = personDal;
         }
 
+        public Person GetOnePersonByTCKimlik(string tcKimlik)
+        {
+            return _personDal.GetPersonByTCKimlik(tcKimlik);
+        }
+
+        public Person GetPersonByTCKimlik(string tcKimlik)
+        {
+            return _personDal.GetListAll().FirstOrDefault(p => p.TCKimlik == tcKimlik);
+        }
+
         public void TAdd(Person entity)
         {
             _personDal.Add(entity);
@@ -48,6 +58,11 @@ namespace PersonTransaction.BusinessLayer.Concrete
         public void TUpdate(Person entity)
         {
             _personDal.Update(entity);
+        }
+
+        public void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson)
+        {
+            _personDal.UpdatePersonByTCKimlik(tcKimlik, updatedPerson);
         }
     }
 }

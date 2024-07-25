@@ -8,7 +8,7 @@ namespace PersonTransaction.DtoLayer.PersonDto
 {
     public class GetPersonDto
     {
-        public int PersonID { get; set; }
         public string Name { get; set; }
+        public string TCKimlik { get; set; }
     }
 }

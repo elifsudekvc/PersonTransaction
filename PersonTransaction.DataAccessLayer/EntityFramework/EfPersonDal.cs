@@ -19,11 +19,40 @@ namespace PersonTransaction.DataAccessLayer.EntityFramework
         {
         }
 
+        public Person GetOnePersonByTCKimlik(string tcKimlik)
+        {
+            var context = new PersonTransactionContext();
+            return context.Persons.FirstOrDefault(p => p.TCKimlik == tcKimlik);
+        }
+
+        public Person GetPersonByTCKimlik(string tcKimlik)
+        {
+            var context = new PersonTransactionContext();
+            return context.Persons.FirstOrDefault(p => p.TCKimlik == tcKimlik);
+        }
+
         public List<Person> GetPersonsWithExpenses()
         {
             var context = new PersonTransactionContext();
             var values =  context.Persons.Include(p => p.ExpenseTransactions).ToList();
             return values;
+        }
+
+        public void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson)
+        {
+            var context = new PersonTransactionContext();
+            var existingPerson = context.Persons.FirstOrDefault(p => p.TCKimlik == tcKimlik);
+
+            if (existingPerson != null)
+            {
+                existingPerson.Name = updatedPerson.Name;
+                // Gerekirse diğer alanları da güncelle
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Person not found.");
+            }
         }
     }
 }
