@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PersonTransactionAPI",
+    "\\PersonTransactionAPI\\Controllers"
   ],
-  "SelectedNode": "\\PersonTransaction.sln",
+  "SelectedNode": "\\PersonTransactionAPI\\Controllers\\ExpenseTransactionController.cs",
   "PreviewInSolutionExplorer": false
 }

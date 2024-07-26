@@ -10,8 +10,11 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using PersonTransactionAPI.Swagger;
+using Hangfire;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -39,10 +42,22 @@ builder.Services.AddScoped<IPersonDal, EfPersonDal>();
 builder.Services.AddScoped<IExpenseTransactionService, ExpenseTransactionManager>();
 builder.Services.AddScoped<IExpenseTransactionDal, EfExpenseTransactionDal>();
 
+builder.Services.AddScoped<IExpenseAggregationService, ExpenseAggregationService>();
+builder.Services.AddScoped<IExpenseTransactionDal, EfExpenseTransactionDal>();
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Hangfire
+builder.Services.AddHangfire(configuration => configuration
+    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseDefaultTypeSerializer()
+    .UseSqlServerStorage(builder.Configuration.GetConnectionString("HangfireConnection")));
+
+
+builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
@@ -57,7 +72,12 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseHangfireDashboard();
 app.MapControllers();
+app.UseHangfireServer();
+
+RecurringJob.AddOrUpdate<IExpenseAggregationService>("daily-expense-aggregation", service => service.AggregateDailyExpenses(), Cron.Daily);
+RecurringJob.AddOrUpdate<IExpenseAggregationService>("weekly-expense-aggregation", service => service.AggregateWeeklyExpenses(), Cron.Weekly);
+RecurringJob.AddOrUpdate<IExpenseAggregationService>("monthly-expense-aggregation", service => service.AggregateMonthlyExpenses(), Cron.Monthly);
 
 app.Run();

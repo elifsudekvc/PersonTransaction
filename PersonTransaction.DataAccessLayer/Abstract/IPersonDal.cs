@@ -17,5 +17,6 @@ namespace PersonTransaction.DataAccessLayer.Abstract
         void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson);
         Person GetOnePersonByTCKimlik(string tcKimlik);
         List<PersonTotalExpenseTransactionDto> GetPersonTotalExpenseTransaction();
+        void Save();
     }
 }

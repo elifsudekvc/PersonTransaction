@@ -64,9 +64,13 @@ namespace PersonTransaction.DataAccessLayer.Migrations
 
                     b.Property<string>("TCKimlik")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.HasKey("PersonID");
+
+                    b.HasIndex("TCKimlik")
+                        .IsUnique();
 
                     b.ToTable("Persons");
                 });

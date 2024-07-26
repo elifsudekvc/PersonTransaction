@@ -52,6 +52,12 @@ namespace PersonTransaction.DataAccessLayer.EntityFramework
             return totalExpenses;
         }
 
+        public void Save()
+        {
+            var context = new PersonTransactionContext();
+            context.SaveChanges();
+        }
+
         public void UpdatePersonByTCKimlik(string tcKimlik, Person updatedPerson)
         {
             var context = new PersonTransactionContext();
