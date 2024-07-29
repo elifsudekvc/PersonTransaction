@@ -10,7 +10,7 @@ Scheduled background job kullanarak kullanıcı bazlı masrafları günlük, haf
 
 ### Kullanılan Teknolojiler
 +	Microsoft SQL Server
-+	ASP.NET Core MVC (.NET 6.0)
++	ASP.NET Core (.NET 6.0)
 +	RESTful API
 +	JWT
 +	Generic Repository pattern
